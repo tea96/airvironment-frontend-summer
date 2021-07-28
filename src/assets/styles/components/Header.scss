@@ -1,0 +1,38 @@
+@import "../variables";
+.header {
+  height: 80px;
+  border-bottom: 1px solid $color-white;
+  font-size: 36px;
+  color: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+}
+
+.header-span-opacity {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.air {
+  text-transform: uppercase;
+}
+
+.airvironment {
+  cursor: pointer;
+  margin-left: 50px;
+}
+.navigation {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 13px;
+}
+
+.average {
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.data {
+  margin-left: 100px;
+  cursor: pointer;
+}
