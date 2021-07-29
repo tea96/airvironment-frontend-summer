@@ -1,0 +1,80 @@
+@import "../variables";
+
+.container {
+  background-color: $border-opacity-white;
+  height: 220px;
+  width: 180px;
+
+  .title {
+    margin-top: 10px;
+    text-align: center;
+    color: $color-white;
+  }
+}
+.format {
+  font-size: 28px;
+  font-style: $roboto;
+}
+
+.date {
+  font-size: 12px;
+  font-style: $roboto;
+}
+
+hr {
+  width: 80%;
+}
+
+.size {
+  padding: 0 8px 0 4px;
+  .temperature,
+  .humidity,
+  .pollution {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $color-white;
+    height: 48px;
+
+    .left,
+    .right {
+      display: flex;
+      align-items: center;
+      .right-section {
+        text-align: right;
+        font-style: $roboto;
+        font-weight: bold;
+        font-size: 24px;
+        .slash {
+          font-weight: lighter;
+        }
+      }
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+      .left-section-div {
+        display: flex;
+        flex-direction: column;
+        margin-left: 4px;
+        .left-section-subsection {
+          text-decoration: $roboto;
+          font-size: 10px;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+.margin-left {
+  margin-left: 3px;
+}
+
+.ppb {
+  font-weight: normal;
+  font-size: 12px;
+}
