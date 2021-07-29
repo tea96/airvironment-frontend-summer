@@ -13,7 +13,9 @@ const Header = () => {
       </div>
       <div className="navigation">
         <span className="data ">all data</span>
-        <span className="average">averages</span>
+        <Link to="/averages">
+          <span className="average">averages</span>
+        </Link>
       </div>
     </div>
   );

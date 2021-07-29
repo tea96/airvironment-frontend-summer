@@ -8,14 +8,14 @@ import {
   ThermometerIcon,
 } from "../assets/icons";
 
-function MeasurementCard() {
+function MeasurementCard({ data, fetchData }) {
   return (
     <div className="container">
       <div className="title">
         <div className="format">
-          <b>Wed</b>
+          <b>{data.title}</b>
         </div>
-        <div className="date">07. Jul. 2021</div>
+        <div className="date">{data.date}</div>
         <hr />
       </div>
       <div className="size">
@@ -25,18 +25,18 @@ function MeasurementCard() {
             <div className="left-section-div">
               <div className="left-section-subsection">
                 <HighValueIcon />
-                <span className="margin-left">30C°</span>
+                <span className="margin-left">{data.maxTemp}C°</span>
               </div>
               <div className="left-section-subsection">
                 <LowValueIcon />
-                <span className="margin-left">22C°</span>
+                <span className="margin-left">{data.minTemp}C°</span>
               </div>
             </div>
           </div>
           <div className="right">
             <span className="right-section">
               <span className="slash">/</span>
-              <span>26</span>C°
+              <span>{fetchData.temperature.toFixed(0)}</span>C°
             </span>
           </div>
         </div>
@@ -47,18 +47,18 @@ function MeasurementCard() {
             <div className="left-section-div">
               <div className="left-section-subsection">
                 <HighValueIcon />
-                <span className="margin-left">56%</span>
+                <span className="margin-left">{data.maxHum}%</span>
               </div>
               <div className="left-section-subsection">
                 <LowValueIcon />
-                <span className="margin-left">40%</span>
+                <span className="margin-left">{data.minHum}%</span>
               </div>
             </div>
           </div>
           <div className="right">
             <span className="right-section">
               <span className="slash">/</span>
-              <span>48</span>%
+              <span>{fetchData.humidity.toFixed(0)}</span>%
             </span>
           </div>
         </div>
@@ -69,18 +69,22 @@ function MeasurementCard() {
             <div className="left-section-div">
               <div className="left-section-subsection">
                 <HighValueIcon />
-                <span className="margin-left">0.70ppb</span>
+                <span className="margin-left">
+                  {data.maxPoll.toFixed(2)}ppb
+                </span>
               </div>
               <div className="left-section-subsection">
                 <LowValueIcon />
-                <span className="margin-left">0.50ppb</span>
+                <span className="margin-left">
+                  {data.minPoll.toFixed(2)}ppb
+                </span>
               </div>
             </div>
           </div>
           <div className="right">
             <span className="right-section">
               <span className="slash">/</span>
-              <span>0,60</span>
+              <span>{(fetchData.pollution / 100).toFixed(2)}</span>
               <span className="ppb">ppb</span>
             </span>
           </div>
