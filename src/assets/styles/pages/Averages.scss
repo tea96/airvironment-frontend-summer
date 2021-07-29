@@ -1,0 +1,12 @@
+@import "../variables";
+
+.averages-container {
+  width: 100vw;
+  justify-content: center;
+  height: calc(100vh - 80px - 52px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 52px;
+}

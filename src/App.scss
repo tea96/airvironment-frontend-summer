@@ -2,7 +2,8 @@
 .app {
   background: $background;
   width: 100vw;
-  height: calc(100vh);
+  max-height: 100vh;
+  height: 100vh;
   a {
     text-decoration: none;
     color: $color-white;
