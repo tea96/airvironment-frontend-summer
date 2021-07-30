@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import "../assets/styles/components/MeasurementCard.scss";
 import {
   HighValueIcon,
@@ -8,14 +9,16 @@ import {
   ThermometerIcon,
 } from "../assets/icons";
 
-function MeasurementCard({ data, fetchData }) {
+function MeasurementCard({ averageValues }) {
   return (
     <div className="container">
       <div className="title">
         <div className="format">
-          <b>{data.title}</b>
+          <b>{moment(averageValues.date, "DD.M.YYYY.").format("ddd")}</b>
         </div>
-        <div className="date">{data.date}</div>
+        <div className="date">
+          {moment(averageValues.date, "DD.M.YYYY.").format("DD. MMM. YYYY.")}
+        </div>
         <hr />
       </div>
       <div className="size">
@@ -25,18 +28,22 @@ function MeasurementCard({ data, fetchData }) {
             <div className="left-section-div">
               <div className="left-section-subsection">
                 <HighValueIcon />
-                <span className="margin-left">{data.maxTemp}C°</span>
+                <span className="margin-left">
+                  {averageValues.maxTemperature}C°
+                </span>
               </div>
               <div className="left-section-subsection">
                 <LowValueIcon />
-                <span className="margin-left">{data.minTemp}C°</span>
+                <span className="margin-left">
+                  {averageValues.minTemperature}C°
+                </span>
               </div>
             </div>
           </div>
           <div className="right">
             <span className="right-section">
               <span className="slash">/</span>
-              <span>{fetchData.temperature.toFixed(0)}</span>C°
+              <span>{averageValues.averageTemperature}</span>C°
             </span>
           </div>
         </div>
@@ -47,18 +54,22 @@ function MeasurementCard({ data, fetchData }) {
             <div className="left-section-div">
               <div className="left-section-subsection">
                 <HighValueIcon />
-                <span className="margin-left">{data.maxHum}%</span>
+                <span className="margin-left">
+                  {averageValues.maxHumidity}%
+                </span>
               </div>
               <div className="left-section-subsection">
                 <LowValueIcon />
-                <span className="margin-left">{data.minHum}%</span>
+                <span className="margin-left">
+                  {averageValues.minHumidity}%
+                </span>
               </div>
             </div>
           </div>
           <div className="right">
             <span className="right-section">
               <span className="slash">/</span>
-              <span>{fetchData.humidity.toFixed(0)}</span>%
+              <span>{averageValues.averageHumidity}</span>%
             </span>
           </div>
         </div>
@@ -70,13 +81,13 @@ function MeasurementCard({ data, fetchData }) {
               <div className="left-section-subsection">
                 <HighValueIcon />
                 <span className="margin-left">
-                  {data.maxPoll.toFixed(2)}ppb
+                  {averageValues.maxPollution}ppb
                 </span>
               </div>
               <div className="left-section-subsection">
                 <LowValueIcon />
                 <span className="margin-left">
-                  {data.minPoll.toFixed(2)}ppb
+                  {averageValues.minPollution}ppb
                 </span>
               </div>
             </div>
@@ -84,7 +95,7 @@ function MeasurementCard({ data, fetchData }) {
           <div className="right">
             <span className="right-section">
               <span className="slash">/</span>
-              <span>{(fetchData.pollution / 100).toFixed(2)}</span>
+              <span>{averageValues.averagePollution}</span>
               <span className="ppb">ppb</span>
             </span>
           </div>
