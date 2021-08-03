@@ -12,7 +12,10 @@ const Header = () => {
         </Link>
       </div>
       <div className="navigation">
-        <span className="data ">all data</span>
+        <Link to="/allData">
+          <span className="data ">all data</span>
+        </Link>
+
         <Link to="/averages">
           <span className="average">averages</span>
         </Link>
