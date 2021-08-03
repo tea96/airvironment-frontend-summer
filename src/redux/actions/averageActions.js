@@ -1,12 +1,13 @@
 import * as types from "./actionTypes";
 import * as measurementsApi from "../../api/measurements";
+import { AVERAGE_MEASUREMENTS_LOAD_REQUEST } from "./actionTypes";
 
 /**
  * Load average values requested.
  * @returns {{type: string}}
  */
 export function loadAverageValuesRequest() {
-  return { type: types.AVERAGE_MEASUREMENTS_REQUEST };
+  return { type: types.AVERAGE_MEASUREMENTS_LOAD_REQUEST };
 }
 
 /**
@@ -15,7 +16,7 @@ export function loadAverageValuesRequest() {
  * @returns {{response: *, type: string}}
  */
 export function loadAverageValuesSuccess(response) {
-  return { type: types.AVERAGE_MEASUREMENTS_SUCCESS, response };
+  return { type: types.AVERAGE_MEASUREMENTS_LOAD_SUCCESS, response };
 }
 
 /**
@@ -24,7 +25,7 @@ export function loadAverageValuesSuccess(response) {
  * @returns {{error: *, type: string}}
  */
 export function loadAverageValuesFailure(error) {
-  return { type: types.AVERAGE_MEASUREMENTS_FAILURE, error };
+  return { type: types.AVERAGE_MEASUREMENTS_LOAD_FAILURE, error };
 }
 
 /**

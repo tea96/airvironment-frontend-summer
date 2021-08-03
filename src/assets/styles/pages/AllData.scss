@@ -1,0 +1,9 @@
+@import "../mixins";
+
+.all-data-container {
+  padding-top: 48px;
+  width: fit-content;
+  overflow-y: auto;
+  height: 100vh;
+  @include flex(row, center, unset, wrap);
+}

@@ -2,6 +2,10 @@ import * as types from "../actions/actionTypes";
 import initialState from "./initialState";
 import moment from "moment";
 import { groupBy, EXTREME_TYPES, getExtreme } from "../../common/utils";
+import {
+  AVERAGE_MEASUREMENTS_LOAD_FAILURE,
+  AVERAGE_MEASUREMENTS_LOAD_REQUEST,
+} from "../actions/actionTypes";
 
 export default function AverageValuesReducer(
   state = initialState.averageValues,
@@ -15,7 +19,10 @@ export default function AverageValuesReducer(
   };
 
   switch (action.type) {
-    case types.AVERAGE_MEASUREMENTS_SUCCESS:
+    case types.AVERAGE_MEASUREMENTS_LOAD_REQUEST:
+      return state;
+    case types.AVERAGE_MEASUREMENTS_LOAD_SUCCESS:
+      console.log("aaa");
       action.response.forEach((response) => {
         response.date = moment(response.created).format(DATE_FORMAT);
       });
@@ -74,7 +81,7 @@ export default function AverageValuesReducer(
           averagePollution: (valueSum.pollutionSum / itemsFound).toFixed(2),
         };
       });
-    case types.AVERAGE_MEASUREMENTS_FAILURE:
+    case types.AVERAGE_MEASUREMENTS_LOAD_FAILURE:
       return state;
     default:
       return state;
